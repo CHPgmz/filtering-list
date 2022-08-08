@@ -1,5 +1,5 @@
-const input = document.querySelector("#searchInput");
-const userList = document.querySelector("#users");
+const input = document.querySelector("#searchInput"); //Selecciona el campo input
+const userList = document.querySelector("#users"); //Selecciona la etiqueta ul
 let users = [];
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -12,9 +12,9 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function getUsers() {
-  const result = await fetch("https://fakerapi.it/api/v1/users?_quantity=400");
+  const result = await fetch("https://fakerapi.it/api/v1/users?_quantity=400"); //Obtiene los datos desde la api
 
-  return await result.json();
+  return await result.json(); //Convierte los datos en JSON, y lo retorna
   //console.log(data.data);
 }
 
@@ -29,9 +29,10 @@ input.addEventListener("keyup", (e) => {
 });
 
 const usersItems = (users) =>
-  users.map((user) => `<li>${user.firstname} ${user.lastname}</li>`).join(" ");
+  users.map((user) => `<li>${user.firstname} ${user.lastname}</li>`).join(" "); //Imprime los datos en un li y lo concatena con un join
 
 function renderUsers(users) {
-  const itemsString = usersItems(users);
-  userList.innerHTML = itemsString;
+  //Funcion para renderisar los ususarios
+  const itemsString = usersItems(users); //Llama a la funcion userList y le pasa el areglo
+  userList.innerHTML = itemsString; //Imprime los datos en un ul
 }
